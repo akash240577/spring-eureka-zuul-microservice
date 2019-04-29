@@ -1,6 +1,8 @@
 package com.thoughtmechanix.licenses;
 
-import com.thoughtmechanix.licenses.utils.UserContextInterceptor;
+import java.util.Collections;
+import java.util.List;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
@@ -9,13 +11,12 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
-import java.util.Collections;
-import java.util.List;
+import com.thoughtmechanix.licenses.utils.UserContextInterceptor;
 
 @SpringBootApplication
 @EnableEurekaClient
 @EnableCircuitBreaker
-public class Application {
+public class LicensingServiceApplication {
 
     @LoadBalanced
     @Bean
@@ -34,6 +35,6 @@ public class Application {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(LicensingServiceApplication.class, args);
     }
 }
